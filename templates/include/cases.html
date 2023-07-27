@@ -1,0 +1,39 @@
+{% load static %}
+<!-- Service area start -->
+<section class="portfolio__area-12">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="sec-title-wrapper">
+                    <h2 class="sub-title animation__char_come">Лучшие </h2>
+                    <h3 class="title animation__char_come">ке<span>й</span>сы</h3>
+                    <p class="fade_bottom">Продвигаем ваш бизнес вместе: достигайте новых высот с нашей командой
+                        экспертов!</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xx-12">
+                <div class="portfolio__list-12">
+                    {% for case in case_list %}
+                        <a href="{% url 'case:case_detail' slug=case.slug %}">
+                            <div class="portfolio__item-12 fade_bottom">
+                                <h4 class="portfolio__no-12">{{ forloop.counter }}</h4>
+                                <h5 class="portfolio__title-12">{{ case.title|safe }}</h5>
+                                <p> реклама <br> - {{ case.start_date }}</p>
+                                <div class="portfolio__hover-12"
+                                     style="background-image: url({{ case.preview_image.url }});">
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                    <div class="service3__img-wrap">
+                        <div class="service3__img"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Service area end -->

@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Blog detail start -->
+    <section class="blog__detail">
+        <div class="container g-0 line pt-140">
+            <span class="line-3"></span>
+            <div class="row">
+                <div class="col-xxl-8 col-xl-10 offset-xxl-2 offset-xl-1">
+                    <div class="blog__detail-top">
+                        <h2 class="blog__detail-date animation__word_come">{{ object.category }}
+                            <span>{{ object.date_born }}</span>
+                        </h2>
+                        <h3 class="blog__detail-title animation__word_come">{{ object.title }}
+                        </h3>
+                        <div class="blog__detail-metalist">
+                            <div class="blog__detail-meta">
+                                <img src="{% static 'assets/imgs/blog/detail/author.png' %}" alt="Author Picture">
+                                <p>Написал <span>Андрей Галкин</span></p>
+                            </div>
+                            <div class="blog__detail-meta">
+                                <p>Просмотров <span>10</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-12">
+                    <div class="blog__detail-thumb">
+                        <img src="{{ object.image.url }}" alt="Blog Thumbnail" data-speed="0.5">
+                    </div>
+                </div>
+                <div class="col-xxl-8 col-xl-10 offset-xxl-2 offset-xl-1">
+                    <div class="blog__detail-content">
+                        {{ object.content|safe }}
+                    </div>
+                    <div class="blog__detail-tags">
+                        <p class="sub-title-anim">теги: <a
+                                href="{% url 'blog:category_list' slug=object.category.slug %}">{{ object.category.title }}</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog detail end -->
+
+
+    <!-- Related blog start -->
+    <section class="blog__related blog__animation">
+        <div class="container g-0 line pt-130 pb-140">
+            <span class="line-3"></span>
+            <div class="row">
+                <div class="col-xxl-12">
+                    <div class="sec-title-wrapper">
+                        <h2 class="sec-title title-anim">Популярное</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row reset-grid">
+                {% for blog in blog_list %}
+                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4">
+                        <article class="blog__item">
+                            <div class="blog__img-wrapper">
+                                <a href="{% url 'blog:blog_detail' slug=blog.slug category_slug=blog.category.slug %}">
+                                    <div class="img-box">
+                                        <img class="image-box__item" src="{{ blog.preview_image.url }}"
+                                             alt="">
+                                        <img class="image-box__item" src="{{ blog.preview_image.url }}"
+                                             alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <h4 class="blog__meta"><a
+                                    href="{% url 'blog:category_list' slug=blog.category.slug %}">{{ blog.category }}</a>
+                                . {{ blog.date_born }}</h4>
+                            <h5><a href="{% url 'blog:blog_detail' slug=blog.slug category_slug=blog.category.slug %}"
+                                   class="blog__title">{{ blog.title }}</a></h5>
+                            <a href="{% url 'blog:blog_detail' slug=blog.slug category_slug=blog.category.slug %}"
+                               class="blog__btn">Читать <span><i
+                                    class="fa-solid fa-arrow-right"></i></span></a>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Related blog end -->
+
+
+    {% include 'include/cta.html' %}
+{% endblock %}

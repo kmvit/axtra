@@ -1,0 +1,17 @@
+{% load static %}
+<header class="header__area">
+    <div class="header__inner">
+        <div class="header__logo">
+            <a href="/">
+                <img class="logo-primary" src="{% static 'assets/imgs/logo/neveb-white.svg' %}" height="100" alt="НеВеб стидия лого">
+                <img class="logo-secondary" src="{% static 'assets/imgs/logo/neveb-gorizont.svg' %}" height="50" alt="Мобильный логотип НеВеб">
+            </a>
+        </div>
+        <div class="header__nav-icon">
+            <button id="open_offcanvas"><img src="{% static 'assets/imgs/icon/menu-white.png' %}" alt="Меню бар"></button>
+        </div>
+        <div class="header__support">
+            <p>Позвонить нам <a href="tel:{{ phone }}">{{ phone }}</a></p>
+        </div>
+    </div>
+</header>

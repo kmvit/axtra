@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block meta %}
+        <meta name="description" content="{{ object.meta_description }}">
+        <title>{{ object.meta_title }}</title>
+    {% endblock %}
+
+    <!-- Fav Icon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/imgs/logo/favicon.png' %} ">
+
+    <!-- Google Fonts -->
+    <link rel=" preconnect
+    " href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- All CSS files -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/progressbar.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/meanmenu.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/master.css' %}">
+</head>
+
+<body>
+
+<!-- Cursor Animation -->
+<div class="cursor1"></div>
+<div class="cursor2"></div>
+
+
+<!-- Preloader -->
+<div class="preloader">
+    <div class="loading">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
+        <div class="bar bar4"></div>
+        <div class="bar bar5"></div>
+        <div class="bar bar6"></div>
+        <div class="bar bar7"></div>
+        <div class="bar bar8"></div>
+    </div>
+</div>
+
+
+<!-- Scroll Smoother -->
+<div class="has-smooth" id="has_smooth"></div>
+
+
+<!-- Client Cursor -->
+<div class="cursor" id="client_cursor">Смотреть</div>
+
+
+<!-- Go Top Button -->
+<button id="scroll_top" class="scroll-top"><i class="fa-solid fa-arrow-up"></i></button>
+
+
+<!-- Header area start -->
+{% include 'include/header.html' %}
+<!-- Header area end -->
+
+
+<!-- Offcanvas area start -->
+{% include 'include/left-menu.html' %}
+<!-- Offcanvas area end -->
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+        <main>
+            {% block content %}
+
+            {% endblock %}
+        </main>
+        <!-- Footer area start -->
+        {% include 'include/footer.html' %}
+        <!-- Footer area end -->
+
+    </div>
+</div>
+<!-- Modal 1 -->
+<div class="modal__testimonial" id="modal_testimonial">
+    <div class="modal__testimonial-content">
+        <span class="modal__close" id="modal_close"><i class="fa-solid fa-xmark"></i></span>
+        <iframe src="https://www.youtube.com/embed/vZgyWfmw_Kw" title="Testimonial Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" allowfullscreen>
+        </iframe>
+    </div>
+</div>
+
+<!-- Modal 2 -->
+<div class="modal__testimonial" id="modal_testimonial2">
+    <div class="modal__testimonial-content">
+        <span class="modal__close" id="modal_close2"><i class="fa-solid fa-xmark"></i></span>
+        <iframe src="https://www.youtube.com/embed/JulIeG1V8T4" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!-- Modal 3 -->
+<div class="modal__testimonial" id="modal_testimonial3">
+    <div class="modal__testimonial-content">
+        <span class="modal__close" id="modal_close3"><i class="fa-solid fa-xmark"></i></span>
+        <iframe src="https://www.youtube.com/embed/7QkL-40FRfE" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+{% include 'include/footer-js.html' %}
+
+
+</body>
+
+</html>

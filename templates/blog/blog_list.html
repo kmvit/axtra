@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Blog area start -->
+    <section class="blog__area-6 blog__animation">
+        <div class="container g-0 line pt-110 pb-110">
+            <span class="line-3"></span>
+            <div class="row pb-130">
+                <div class="col-xxl-8 col-xl-7 col-lg-6 col-md-6">
+                    <div class="sec-title-wrapper">
+                        <h2 class="sec-title-2 animation__char_come">Мы всегда <br>думаем</h2>
+                    </div>
+                </div>
+                <div class="col-xxl-4 col-xl-5 col-lg-6 col-md-6">
+                    <div class="blog__text">
+                        <p>Что бы ты ни придумал, всегда найдется тот, кто уже делал это до тебя. Так что главное – сделать это лучше.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row reset-grid">
+                 {% for blog in blog_list %}
+                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4">
+                        <article class="blog__item">
+                            <div class="blog__img-wrapper">
+                                <a href="{% url 'blog:blog_detail' slug=blog.slug category_slug=blog.category.slug%}">
+                                    <div class="img-box">
+                                        <img class="image-box__item" src="{{ blog.preview_image.url }}"
+                                             alt="">
+                                        <img class="image-box__item" src="{{ blog.preview_image.url }}"
+                                             alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <h4 class="blog__meta"><a href="{% url 'blog:category_list' slug=blog.category.slug %}">{{ blog.category }}</a> . {{ blog.date_born }}</h4>
+                            <h5><a href="{% url 'blog:blog_detail' slug=blog.slug category_slug=blog.category.slug%}" class="blog__title">{{ blog.title }}</a></h5>
+                            <a href="{% url 'blog:blog_detail' slug=blog.slug category_slug=blog.category.slug %}" class="blog__btn">Читать <span><i
+                                    class="fa-solid fa-arrow-right"></i></span></a>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Blog area end -->
+
+
+    {% include 'include/cta.html' %}
+{% endblock %}

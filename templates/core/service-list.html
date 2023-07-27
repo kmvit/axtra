@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <section class="portfolio__service service-v5 pt-140 pb-140">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-6">
+                    <h1 class="sec-title animation__char_come">Создание сайтов</h1>
+                </div>
+                <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-6">
+                    <div class="sec-text">
+                        <p>Мы с легкостью создаем эффективный рекламный продукт, будь то корпоративный сайт,
+                            электронный коммерческий проект или высоконагруженная интерактивная платформа.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio__service-list">
+                <div class="row">
+                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4">
+                        <div class="portfolio__service-item">
+                            <a href="/shop/">
+                                <h3 class="ps-title">Интернет <br> магазин</h3>
+                                <ul>
+                                    <li>+ Bitrix</li>
+                                    <li>+ Адаптивная верстка</li>
+                                    <li>+ Креативный дизайн</li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4">
+                        <div class="portfolio__service-item">
+                            <a href="/landing">
+                                <h3 class="ps-title">Лэндинг<br> Одностраничник</h3>
+                                <ul>
+                                    <li>+ WordPress</li>
+                                    <li>+ Адаптивная верстка</li>
+                                    <li>+ Креативный дизайн</li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4">
+                        <div class="portfolio__service-item">
+                            <a href="/portal/">
+                                <h3 class="ps-title">Высоконагруженый<br> сервис</h3>
+                                <ul>
+                                    <li>+ Django/Python</li>
+                                    <li>+ React/Vue</li>
+                                    <li>+ Postgres</li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4">
+                        <div class="portfolio__service-item">
+                            <a href="/coop/">
+                                <h3 class="ps-title">Корпоративный <br> портал</h3>
+                                <ul>
+                                    <li>+ Django</li>
+                                    <li>+ Адаптивная верстка</li>
+                                    <li>+ Креативный дизайн</li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4">
+                        <div class="portfolio__service-item">
+                            <a href="#">
+                                <h3 class="ps-title">Сайт<br> Каталог</h3>
+                                <ul>
+                                    <li>+ Modx/Wordpress</li>
+                                    <li>+ Адаптивная верстка</li>
+                                    <li>+ Креативный дизайн</li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4">
+                        <div class="portfolio__service-item">
+                            <a href="/visitka/">
+                                <h3 class="ps-title">Сайт<br> Визитка</h3>
+                                <ul>
+                                    <li>+ Modx/WordPress</li>
+                                    <li>+ Адаптивная верстка</li>
+                                    <li>+ Креативный дизайн</li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Service detail area start -->
+    <section class="service__detail mt-60">
+        <div class="container g-0 line pb-140">
+            <div class="line-3"></div>
+            <div class="row">
+                <div class="col-xxl-12">
+                    <div class="sec-title-wrapper">
+                        <h2 class="sec-title title-anim">{{ object.title_2 }}</h2>
+                    </div>
+                </div>
+                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3">
+                    <div class="service__detail-circle">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-9">
+                    <div class="service__detail-img">
+                        <img src="{% static 'assets/imgs/thumb/new-dev-3.jpg' %}" alt="Service detail image">
+                        <img src="{% static 'assets/imgs/icon/shape-6.png' %}" alt="Service shape image"
+                             class="sd-shape">
+                    </div>
+                    <div class="service__detail-content">
+                        {{ object.content_one|safe }}
+                        {{ object.content_two|safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Service detail area end -->
+
+
+    {% include 'include/brand.html' %}
+
+
+    {% include 'include/cta.html' %}
+{% endblock %}

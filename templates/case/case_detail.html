@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Blog detail start -->
+    <section class="blog__detail">
+        <div class="container g-0 line pt-140">
+            <span class="line-3"></span>
+            <div class="row">
+                <div class="col-xxl-8 col-xl-10 offset-xxl-2 offset-xl-1">
+                    <div class="blog__detail-top">
+                        <h2 class="blog__detail-date animation__word_come">{{ object.get_category_display }}
+                            <span>{{ object.start_date }}</span></h2>
+                        <h3 class="blog__detail-title animation__word_come">{{ object.meta_title|safe }}
+                        </h3>
+                        <div class="blog__detail-metalist">
+                            <div class="blog__detail-meta">
+                                <p>Клиент<span>{{ object.client }}</span></p>
+                            </div>
+                            <div class="blog__detail-meta">
+                                <p>Ссылка на сайт <span><a rel="nofollow" target="_blank"
+                                                           href="{{ object.link_to_site }}"
+                                                           class="sub-title-anim">{{ object.link_to_site }}</a></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xxl-8 col-xl-10 offset-xxl-2 offset-xl-1">
+                    <div class="blog__detail-content">
+                        <h2>Задача</h2>
+                        {{ object.task|safe }}
+
+                        <h2>Решение</h2>
+                        <div class="row">{{ object.content_1|safe }}</div>
+                        {% if object.image %}
+                            <img src="{{ object.image.url }}" alt="Blog Image">
+                        {% endif %}
+                        <h2>Идеи</h2>
+                        {{ object.content_2|safe }}
+                        {% if object.image_2 %}
+                            <img src="{{ object.image_2.url }}" alt="Blog Image">
+                        {% endif %}
+                        <h2>Еще немного идей</h2>
+                        {{ object.content_3|safe }}
+                        {% if object.image_3 %}
+                            <img src="{{ object.image_3.url }}" alt="Code">
+                        {% endif %}
+
+                        <h2>Результаты</h2>
+                        <div class="workflow__wrapper-6">
+                            <div class="row">
+                                {{ object.solution|safe }}
+                            </div>
+                        </div>
+                        {% if object.image_4 %}
+                            <img src="{{ object.image_4.url }}" alt="Code">
+                        {% endif %}
+                        <h2>Используемые технологии</h2>
+                        {{ object.content_4|safe }}
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog detail end -->
+
+
+    <!-- Related blog start -->
+    <section class="blog__related blog__animation">
+        <div class="container g-0 line pt-130 pb-140">
+            <span class="line-3"></span>
+            <div class="row">
+                <div class="col-xxl-12">
+                    <div class="sec-title-wrapper">
+                        <h2 class="sec-title title-anim">Еще проекты</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row reset-grid">
+                {% for item in recent_works %}
+                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4">
+                        <article class="blog__item">
+                            <div class="blog__img-wrapper">
+                                <a href="{% url 'case:case_detail' slug=item.slug %}">
+                                    <div class="img-box">
+                                        <img class="image-box__item" src="{{ item.preview_image.url }}"
+                                             alt="Blog Thumbnail">
+                                        <img class="image-box__item" src="{{ item.preview_image.url }}"
+                                             alt="BLog Thumbnail">
+                                    </div>
+                                </a>
+                            </div>
+                            <h4 class="blog__meta sub-title-anim">
+                                <a>{{ item.get_category_display }}</a> {{ item.start_date }}
+                            </h4>
+                            <h5><a href="{% url 'case:case_detail' slug=item.slug %}"
+                                   class="blog__title sub-title-anim">{{ item|safe }}</a></h5>
+                            <a href="{% url 'case:case_detail' slug=item.slug %}"
+                               class="blog__btn">Посмотреть<span><i
+                                    class="fa-solid fa-arrow-right"></i></span></a>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Related blog end -->
+
+
+    <!-- CTA area start -->
+    {% include 'include/cta.html' %}
+    <!-- CTA area end -->
+{% endblock %}

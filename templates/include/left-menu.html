@@ -1,0 +1,70 @@
+{% load static %}
+<div class="offcanvas__area">
+    <div class="offcanvas__body">
+        <div class="offcanvas__left">
+            <div class="offcanvas__logo">
+                <a href="/"><img src="{% static 'assets/imgs/logo/neveb-gorizont.svg' %}" width="120"
+                                 alt="Невеб студия логотип"></a>
+            </div>
+            <div class="offcanvas__social">
+                <h3 class="social-title">Подписаться в соц.сетях</h3>
+                <ul>
+                    <li><a href="{{ vk }}">Вконтакте</a></li>
+                    <li><a href="{{ instagram }}">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="offcanvas__links">
+                <ul>
+                    <li><a href="/contact">Контакты</a></li>
+                    <li><a href="/portfolio">Портфолио</a></li>
+                    <li><a href="/blog">Блог</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="offcanvas__mid">
+            <div class="offcanvas__menu-wrapper">
+                <nav class="offcanvas__menu">
+                    <ul class="menu-anim">
+                        <li><a>главная</a>
+                        </li>
+                        <li><a href="/cases/">кейсы</a></li>
+                        <li><a href="/portfolio/">Портфолио</a></li>
+                        <li><a href="/mobile/">Приложения</a></li>
+                        <li><a href="/razrabotka-saita/">Создание сайтов</a></li>
+                        <li>
+                            <a>Реклама</a>
+                            <ul>
+                                <li><a href="/kontekstnaja-reklama/">Реклама в интернете</a></li>
+                                <li><a href="/prodvijenie-saitov/">SEO</a></li>
+                                <li><a href="/smm/">SMM</a></li>
+                            </ul>
+                        </li>
+                        </li>
+                        <li><a href="/contact/">контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="offcanvas__right">
+            <div class="offcanvas__search">
+                <form action="#">
+                    <input type="text" name="search" placeholder="Поиск">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+            <div class="offcanvas__contact">
+                <h3>Нужны клиенты?</h3>
+                <ul>
+                    <li><a href="tel:{{ phone }}">{{ phone }}</a></li>
+                    <li><a href="mailto:{{ email }}">{{ email }}</a></li>
+                    <li>{{ address }}</li>
+                </ul>
+            </div>
+            <img src="{% static 'assets/imgs/shape/11.png' %}" alt="shape" class="shape-1">
+            <img src="{% static 'assets/imgs/shape/12.png' %}" alt="shape" class="shape-2">
+        </div>
+        <div class="offcanvas__close">
+            <button type="button" id="close_offcanvas"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+</div>
