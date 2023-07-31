@@ -59,3 +59,5 @@ class Page(models.Model):
 
     def get_absolute_url(self):
         return reverse('pages:page', kwargs={'slug': self.slug})
+
+

@@ -22,7 +22,7 @@ class Work(models.Model):
     image_2 = models.FileField(upload_to='portfolio', blank=True, verbose_name='Изображение 2')
     task = RichTextField(blank=True, verbose_name='Задача')
     solution = RichTextField(blank=True, verbose_name='Решение')
-    technology = models.TextField(blank=True, verbose_name='Технологии')
+    technology = RichTextField(blank=True, verbose_name='Технологии')
     link_to_site = models.CharField(max_length=100, blank=True, verbose_name='Ссылка на сайт')
     category = models.CharField(max_length=50, choices=WORK_CATEGORY, default=1, blank=True,
                                 verbose_name='Категория сайта')

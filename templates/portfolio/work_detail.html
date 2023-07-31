@@ -14,7 +14,7 @@
                         </h3>
                         <div class="blog__detail-metalist">
                             <div class="blog__detail-meta">
-                                <img src="{% static 'assets/imgs/blog/detail/author.png' %}" alt="Author Picture">
+                                <!-- <img src="{% static 'assets/imgs/blog/detail/author.png' %}" alt="Author Picture"> -->
                                 <p>Клиент<span>{{ object.client }}</span></p>
                             </div>
                             <div class="blog__detail-meta">
@@ -36,11 +36,12 @@
                         {% endif %}
                         <h2>Решение</h2>
                         {{ object.solution|safe }}
+                        {% if object.image_2 %}
+                            <img src="{{ object.image_2.url }}" alt="Code">
+                        {% endif %}
                         <h2>Используемые технологии</h2>
                         {{ object.technology|safe }}
-                        {% if object.image_2 %}
-                        <img src="{{ object.image_2.url }}" alt="Code">
-                        {% endif %}
+
                     </div>
 
                 </div>
