@@ -16,6 +16,7 @@ WORK_CATEGORY = (
 class Work(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название')
     slug = models.SlugField(unique=True, verbose_name='Дружественный URL')
+    meta_title = models.TextField(blank=True, verbose_name='Мета заголовок')
     meta_description = models.TextField(verbose_name='Мета описание')
     preview_image = models.FileField(upload_to='preview', verbose_name='Превью')
     image = models.FileField(upload_to='portfolio', blank=True, verbose_name='Изображение 1')
