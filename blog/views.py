@@ -27,20 +27,16 @@ class BlogDetail(generic.DetailView):
         return context
 
 
-class CategoryList(generic.ListView):
-    template_name = 'blog/blog_list.html'
-
-    def get_queryset(self):
-        return Blog.objects.filter(category__slug=self.kwargs['slug'])
+class CategoryList(generic.DetailView):
+    template_name = 'blog/category.html'
+    model = Category
 
     def get_context_data(self, **kwargs):
         context = super(CategoryList, self).get_context_data(**kwargs)
         context['category_list'] = Category.objects.all()
         try:
-            context['my_title'] = Blog.objects.filter(category__slug=self.kwargs['slug']).first().category
+            context['category'] = Category.objects.get(slug=self.kwargs['slug'])
+            context['blog_list'] = Blog.objects.filter(category__slug=self.kwargs['slug'])
         except Category.DoesNotExist:
-            raise Http404
-        context['my_description'] = 'Полезные статьи о ' + Blog.objects.filter(
-            category__slug=self.kwargs['slug']).first().category.title
-
+            Http404
         return context
