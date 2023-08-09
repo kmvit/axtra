@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render
 from django.views import generic
 from .models import Blog, Category
@@ -35,7 +36,10 @@ class CategoryList(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(CategoryList, self).get_context_data(**kwargs)
         context['category_list'] = Category.objects.all()
-        context['my_title'] = Blog.objects.filter(category__slug=self.kwargs['slug']).first().category
+        try:
+            context['my_title'] = Blog.objects.filter(category__slug=self.kwargs['slug']).first().category
+        except Category.DoesNotExist:
+            raise Http404
         context['my_description'] = 'Полезные статьи о ' + Blog.objects.filter(
             category__slug=self.kwargs['slug']).first().category.title
 
