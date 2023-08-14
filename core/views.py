@@ -1,10 +1,27 @@
-from django.shortcuts import render
+from django.contrib.sitemaps import Sitemap
+from django.shortcuts import render, redirect
 from django.views.generic import DetailView, TemplateView
 
 from blog.models import Blog
 from cases.models import Case
 from core.models import Page
 from portfolio.models import Work
+
+
+class PageSiteMap(Sitemap):
+    changefreq = "never"
+    priority = 0.5
+
+    def items(self):
+        return Page.objects.all()
+
+
+class BlogSiteMap(Sitemap):
+    changefreq = "never"
+    priority = 0.5
+
+    def items(self):
+        return Blog.objects.all()
 
 
 class PageView(DetailView):
@@ -38,3 +55,9 @@ class ContactView(DetailView):
 
     def get_object(self, queryset=None):
         return Page.objects.get(slug='contact')
+
+
+def view_404(request, exception=None):
+    # make a redirect to homepage
+    # you can use the name of url or just the plain link
+    return redirect('/')  # or redirect('name-of-index-url')

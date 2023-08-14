@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.urls import reverse
 
 
 class Category(models.Model):
@@ -32,3 +33,6 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('blog:blog_detail', kwargs={'category_slug': self.category.slug, 'slug':self.slug})
