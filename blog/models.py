@@ -1,7 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.urls import reverse
-
+from ckeditor_uploader.fields import RichTextUploadingField
 
 class Category(models.Model):
     title = models.CharField(max_length=150, verbose_name='Название')
@@ -24,7 +24,7 @@ class Blog(models.Model):
     image = models.FileField(upload_to='blog', verbose_name='Изображение в статье')
     date_born = models.DateField(verbose_name='Дата создания')
     description = models.TextField(blank=True, null=True, verbose_name='Краткое описание')
-    content = RichTextField(verbose_name='Текст статьи')
+    content = RichTextUploadingField(verbose_name='Текст статьи')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, verbose_name='Категория статьи')
 
     class Meta:
