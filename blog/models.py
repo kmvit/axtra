@@ -3,6 +3,7 @@ from ckeditor.fields import RichTextField
 from django.urls import reverse
 from ckeditor_uploader.fields import RichTextUploadingField
 
+
 class Category(models.Model):
     title = models.CharField(max_length=150, verbose_name='Название')
     slug = models.SlugField(unique=True, verbose_name='Дружественный URL')
@@ -35,4 +36,4 @@ class Blog(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog:blog_detail', kwargs={'category_slug': self.category.slug, 'slug':self.slug})
+        return reverse('blog:blog_detail', kwargs={'category_slug': self.category.slug, 'slug': self.slug})

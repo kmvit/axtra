@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'blog',
     'cases',
-    'django_ace',
 ]
 
 MIDDLEWARE = [
