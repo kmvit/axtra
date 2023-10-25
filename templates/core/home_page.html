@@ -13,13 +13,25 @@
                             <h1 class="hero__title">НеВеб <br>студия</h1>
                             <p class="hero__sub-title">Креативные сайты
                                 <span>сложные проекты</span>
-                                И реклама в интернете.
+                                Реклама в интернете.
                             </p>
                         </div>
-                        <img src="{% static 'assets/imgs/icon/arrow-down-big.png' %}" alt="Arrow Down Icon">
+                        <img src="{% static 'assets/imgs/icon/arrow-down-big.png' %}" alt="Заказать сайт">
                         <div class="experience">
                             <h2 class="title"><a href="tel:88005506648">{{ phone }}</a></h2>
-                            <p><a href="mailto:manager@kmv-it.ru">{{ email }}</a></p>
+                            <div data-marquiz-id="6538705375e6c70025fc9925"></div>
+                            <script>(function (t, p) {
+                                window.Marquiz ? Marquiz.add([t, p]) : document.addEventListener('marquizLoaded', function () {
+                                    Marquiz.add([t, p])
+                                })
+                            })('Button', {
+                                id: '6538705375e6c70025fc9925',
+                                buttonText: 'Сколько будет стоить мой сайт?',
+                                bgColor: '#c9f31d',
+                                textColor: '#363636',
+                                shadow: 'rgba(201, 243, 29, 0.5)',
+                                blicked: true
+                            })</script>
                         </div>
                     </div>
                 </div>
@@ -145,7 +157,8 @@
                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3">
                     <div class="service__top-btn">
                         <div class="btn_wrapper">
-                            <a href="{% url 'case:case_list' %}" class="btn-item wc-btn-secondary btn-hover"><span></span>
+                            <a href="{% url 'case:case_list' %}"
+                               class="btn-item wc-btn-secondary btn-hover"><span></span>
                                 Все <br>кейсы
                                 <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
@@ -212,7 +225,8 @@
                                         <h4 class="service__title">Реклама в интернете</h4>
                                     </div>
                                     <div class="service__text">
-                                        <p>Увеличьте видимость и привлекайте новых клиентов: эффективная реклама в интернете для вашего бизнеса!</p>
+                                        <p>Увеличьте видимость и привлекайте новых клиентов: эффективная реклама в
+                                            интернете для вашего бизнеса!</p>
                                     </div>
                                     <div class="service__link">
                                         <p><i class="fa-solid fa-arrow-right"></i></p>
