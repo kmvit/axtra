@@ -35353,3 +35353,7 @@ body {
         left: 70px; /*отступ кнопки слева от экрана(right - справа)*/
     }
 }
+
+h2.title.phone-top a {
+    font-size: 40px;
+}
