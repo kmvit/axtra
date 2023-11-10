@@ -42,7 +42,6 @@
     </section>
     <!-- Hero area end -->
 
-
     <!-- Roll area start -->
     <section class="roll__area">
         <div class="swiper roll__slider">
@@ -91,6 +90,9 @@
     </section>
     <!-- Roll area end -->
 
+    {% include 'include/cases.html' %}
+
+    {% include 'include/portfolio.html' %}
 
     <!-- About area start -->
     <section class="about__area">
@@ -99,7 +101,7 @@
             <div class="row">
                 <div class="col-xxl-12">
                     <div class="about__title-wrapper">
-                        <h3 class="sec-title title-anim">Более 5 лет решаем проблемы бизнеса, не создавая новые</h3>
+                        <h3 class="sec-title title-anim">Интернет агенство полного цикла</h3>
                     </div>
 
                     <div class="about__content-wrapper">
@@ -143,7 +145,7 @@
                 <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4">
                     <div class="sec-title-wrapper wrap">
                         <h2 class="sec-sub-title title-anim">услуги</h2>
-                        <h3 class="sec-title title-anim">Решения которые мы <br>предлагаем</h3>
+                        <h3 class="sec-title title-anim">Это мы <br>умеем хорошо</h3>
                     </div>
                 </div>
                 <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5">
@@ -240,64 +242,7 @@
     <!-- Service area end -->
 
 
-    {% include 'include/counter.html' %}
-
-
-    {% include 'include/cases.html' %}
-
-
-    {% include 'include/workflow.html' %}
-
-
-    {% include 'include/portfolio.html' %}
-
-
     {% include 'include/brand.html' %}
-
-
-    {% include 'include/testimonials.html' %}
-
-
-    <!-- Blog area start -->
-    <section class="blog__area no-pb blog__animation">
-        <div class="container g-0 line pt-150 pb-140">
-            <span class="line-3"></span>
-            <div class="row">
-                <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12">
-                    <div class="sec-title-wrapper">
-                        <h2 class="sec-sub-title">последнее из блога</h2>
-                        <h3 class="sec-title">Полезное для мастеров</h3>
-                    </div>
-                </div>
-                {% for blog in blog_list %}
-                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4">
-                        <article class="blog__item">
-                            <div class="blog__img-wrapper">
-                                <a href="{% url 'blog:blog_detail' slug=blog.slug category_slug=blog.category.slug %}">
-                                    <div class="img-box">
-                                        <img class="image-box__item" src="{{ blog.preview_image.url }}"
-                                             alt="">
-                                        <img class="image-box__item" src="{{ blog.preview_image.url }}"
-                                             alt="">
-                                    </div>
-                                </a>
-                            </div>
-                            <h4 class="blog__meta"><a
-                                    href="{% url 'blog:category_list' slug=blog.category.slug %}">{{ blog.category }}</a>
-                                . {{ blog.date_born }}</h4>
-                            <h5><a href="{% url 'blog:blog_detail' slug=blog.slug category_slug=blog.category.slug %}"
-                                   class="blog__title">{{ blog.title }}</a></h5>
-                            <a href="{% url 'blog:blog_detail' slug=blog.slug category_slug=blog.category.slug %}"
-                               class="blog__btn">Читать <span><i
-                                    class="fa-solid fa-arrow-right"></i></span></a>
-                        </article>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    <!-- Blog area end -->
-
 
     {% include 'include/cta.html' %}
 
