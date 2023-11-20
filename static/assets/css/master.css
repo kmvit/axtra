@@ -6319,7 +6319,7 @@ img {
     }
 }
 
-@media only screen and (max-width: 367px) {
+@media only screen and (max-width: 300px) {
     .header__support {
         display: none;
     }
