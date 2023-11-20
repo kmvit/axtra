@@ -35359,7 +35359,7 @@ h2.title.phone-top a {
 }
 
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 992px) {
     .phone-mobile a {
         color: #fff;
         font-size: 17px;
