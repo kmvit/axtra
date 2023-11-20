@@ -6319,11 +6319,11 @@ img {
     }
 }
 
-@media only screen and (max-width: 300px) {
+/*@media only screen and (max-width: 300px) {
     .header__support {
         display: none;
     }
-}
+}*/
 
 .header__support p {
     width: 220px;
