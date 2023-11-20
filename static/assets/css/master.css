@@ -35361,7 +35361,6 @@ h2.title.phone-top a {
 
 @media only screen and (max-width: 767px) {
     .phone-mobile a {
-        min-width: 150px;
         color: #fff;
         font-size: 17px;
         margin-left: 30px;
@@ -35372,4 +35371,7 @@ h2.title.phone-top a {
     .phone-mobile {
         display: none;
     }
+}
+.phone-mobile {
+    min-width: 170px;
 }
