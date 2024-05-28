@@ -2,7 +2,10 @@ from .models import Page
 
 
 def contact_information(request):
-    info = Page.objects.get(is_home_page=True)
+    try:
+        info = Page.objects.get(is_home_page=True)
+    except Page.DoesNotExist:
+        info = None
     if info:
         context = {
             'phone': info.phone,

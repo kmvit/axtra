@@ -1,4 +1,5 @@
 from django.contrib.sitemaps import Sitemap
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView, TemplateView
 
@@ -40,7 +41,10 @@ class HomePage(DetailView):
     template_name = 'core/home_page.html'
 
     def get_object(self, queryset=None):
-        return Page.objects.get(is_home_page=True)
+        try:
+            return Page.objects.get(is_home_page=True)
+        except ObjectDoesNotExist:
+            return Page.objects.first()
 
     def get_context_data(self, **kwargs):
         context = super(HomePage, self).get_context_data(**kwargs)

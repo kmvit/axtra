@@ -35365,5 +35365,12 @@ h2.title.phone-top a {
         font-size: 17px;
         margin-left: 30px;
     }
+    .phone-icon {
+        position: relative;
+        left: 100px;
+    }
 }
 
+.phone-icon {
+    color: #c1eb49;
+}

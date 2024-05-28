@@ -16,7 +16,7 @@ class PageAdmin(ModelAdmin):
         else:  # obj is None, so this is an add page
             kwargs['fields'] = ['category', 'title', 'title_1', 'title_2', 'title_3', 'slug', 'meta_title',
                                 'meta_description',
-                                'preview_image', 'html_block_header',
+                                'preview_image', 'html_block_header', 'is_home_page',
                                 'html_block_technology',
                                 'content_one', 'content_two', 'template', 'faq_1_question', 'faq_1_answer',
                                 'faq_2_question', 'faq_2_answer', 'faq_3_question', 'faq_3_answer',
